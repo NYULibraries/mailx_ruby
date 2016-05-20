@@ -1,6 +1,6 @@
 module MailxRuby
   class CommandGenerator
-    attr_accessor :body, :to, :subject, :cc, :bcc
+    attr_accessor :body, :to, :subject, :cc, :bcc, :html
 
     def self.execute(options)
       new(options).execute
@@ -15,7 +15,7 @@ module MailxRuby
     end
 
     def generate
-      "mailx #{options_string} #{stringify(to)} <<-EOM
+      "mailx #{options_string} #{stringify(to)} <<-\"EOM\"
 #{body}
 EOM"
     end
@@ -24,6 +24,14 @@ EOM"
       options_hash.map do |key, value|
         "-#{key} \"#{value}\""
       end.join(" ")
+    end
+
+    def subject_with_headers
+      if html
+        "$(echo \"#{subject}\nContent-Type: text/html\")"
+      else
+        subject
+      end
     end
 
     private
@@ -39,7 +47,7 @@ EOM"
 
     def options_hash
       {
-        s: subject,
+        s: subject_with_headers,
         c: stringify(cc),
         b: stringify(bcc),
       }.select{|k,v| v }
