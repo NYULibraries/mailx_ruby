@@ -36,4 +36,4 @@ MailxRuby.send_mail(
 
 Options `:to`, `:cc`, and `:bcc` accept strings or arrays of strings.
 
-Option `:body` accepts multi-line strings. You can also specify `html: true`, and MailxRuby will attempt to send the body as HTML. This feature will not work on all OSs but it is tested to work on OS X and Jenkins.
+Option `:body` accepts multi-line strings. You can also specify `html: true`, and MailxRuby will attempt to send the body as HTML. This feature will not work on all OSs but it is tested to work on OS X 10.11 and Red Hat Enterprise Linux 6.5.
