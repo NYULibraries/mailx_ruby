@@ -1,5 +1,10 @@
 # MailxRuby
 
+[![NYU](https://github.com/NYULibraries/nyulibraries-assets/blob/master/lib/assets/images/nyu.png)](https://dev.library.nyu.edu)
+[![Build Status](https://travis-ci.org/NYULibraries/mailx_ruby.svg)](https://travis-ci.org/NYULibraries/mailx_ruby)
+[![Code Climate](https://codeclimate.com/github/NYULibraries/mailx_ruby/badges/gpa.svg)](https://codeclimate.com/github/NYULibraries/mailx_ruby)
+[![Coverage Status](https://coveralls.io/repos/github/NYULibraries/mailx_ruby/badge.svg?branch=master)](https://coveralls.io/github/NYULibraries/mailx_ruby?branch=master)
+
 Simple Ruby wrapper for `mailx` command.
 
 ## Installation
