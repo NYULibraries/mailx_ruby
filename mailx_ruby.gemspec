@@ -13,4 +13,8 @@ Gem::Specification.new do |s|
   s.files       = %w[lib/mailx_ruby.rb lib/mailx_ruby/version.rb lib/mailx_ruby/command_generator.rb]
   s.homepage    = 'https://github.com/NYULibraries/mailx_ruby'
   s.license     = 'MIT'
+
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'coveralls'
 end
