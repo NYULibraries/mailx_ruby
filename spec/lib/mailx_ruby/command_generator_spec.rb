@@ -44,13 +44,13 @@ describe MailxRuby::CommandGenerator do
 
       context "with string to" do
         context "without options_string" do
-          it { is_expected.to eq "mailx  jimbob@example.com <<-EOM\nHello world\nI'm here!\nEOM" }
+          it { is_expected.to eq "mailx  jimbob@example.com <<-\"EOM\"\nHello world\nI'm here!\nEOM" }
         end
 
         context "with options_string" do
           let(:options_string){ "-t JUSTTESTING" }
 
-          it { is_expected.to eq "mailx -t JUSTTESTING jimbob@example.com <<-EOM\nHello world\nI'm here!\nEOM" }
+          it { is_expected.to eq "mailx -t JUSTTESTING jimbob@example.com <<-\"EOM\"\nHello world\nI'm here!\nEOM" }
         end
       end
 
@@ -58,13 +58,13 @@ describe MailxRuby::CommandGenerator do
         let(:options){ ({body: "Hello world\nI'm here!", to: ["jimbob@example.com", "tinman@example.com"]}) }
 
         context "without options_string" do
-          it { is_expected.to eq "mailx  jimbob@example.com,tinman@example.com <<-EOM\nHello world\nI'm here!\nEOM" }
+          it { is_expected.to eq "mailx  jimbob@example.com,tinman@example.com <<-\"EOM\"\nHello world\nI'm here!\nEOM" }
         end
 
         context "with options_string" do
           let(:options_string){ "-t JUSTTESTING" }
 
-          it { is_expected.to eq "mailx -t JUSTTESTING jimbob@example.com,tinman@example.com <<-EOM\nHello world\nI'm here!\nEOM" }
+          it { is_expected.to eq "mailx -t JUSTTESTING jimbob@example.com,tinman@example.com <<-\"EOM\"\nHello world\nI'm here!\nEOM" }
         end
       end
     end
