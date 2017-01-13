@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'mailx_ruby'
 
 describe MailxRuby::CommandGenerator do
-  
+
   describe "class methods" do
     describe "self.execute" do
       subject { described_class.execute options }
@@ -35,6 +35,10 @@ describe MailxRuby::CommandGenerator do
         expect(generator).to receive(:`).with(generated)
         subject
       end
+    end
+
+    describe "inline_css_body" do
+      pending
     end
 
     describe "generate" do

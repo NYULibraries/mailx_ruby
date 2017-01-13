@@ -1,5 +1,9 @@
+require 'nokogiri'
+require 'premailer'
+
 module MailxRuby
   require 'mailx_ruby/command_generator'
+  require 'mailx_ruby/body'
   require 'mailx_ruby/version'
 
   def send_mail(body:, to:, **options)
