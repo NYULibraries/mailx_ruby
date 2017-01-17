@@ -14,15 +14,15 @@ module MailxRuby
       nokogiri_html.xpath("//style").any?
     end
 
-    def nokogiri_html
-      @nokogiri_html ||= Nokogiri::HTML(html)
-    end
-
     def premailer
       @premailer ||= generate_premailer
     end
 
     private
+
+    def nokogiri_html
+      @nokogiri_html ||= Nokogiri::HTML(html)
+    end
 
     def generate_premailer
       File.open(tmp_filepath, "w"){|f| f.write(html) }

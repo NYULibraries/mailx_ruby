@@ -38,7 +38,44 @@ describe MailxRuby::CommandGenerator do
     end
 
     describe "inline_css_body" do
-      pending
+      subject{ generator.inline_css_body }
+
+      context "with html unspecified" do
+        it { is_expected.to eq options[:body] }
+      end
+
+      context "with html true" do
+        let(:options){ ({body: body, to: "jimbob@example.com", html: true}) }
+
+        context "and body without styles" do
+          let(:body) do
+            "<html>
+              <body>
+                <p>Some nonsense
+              </body>
+            </html>"
+          end
+
+          it { is_expected.to eq "Some nonsense" }
+        end
+
+        context "and body with styles" do
+          let(:body) do
+            "<html>
+              <head>
+                <style>
+                  p { color:red; }
+                </style>
+              </head>
+              <body>
+                <p>Some nonsense
+              </body>
+            </html>"
+          end
+
+          it { is_expected.to include "<p style=\"color: red;\">Some nonsense" }
+        end
+      end
     end
 
     describe "generate" do
