@@ -14,9 +14,23 @@ module MailxRuby
       `#{generate}`
     end
 
+    def body=(body_text)
+      @body = Body.new(body_text)
+    end
+
+    def inline_css_body
+      if !html
+        body.text
+      elsif body.has_css?
+        body.to_inline_css
+      else
+        body.to_plain_text
+      end
+    end
+
     def generate
       "mailx #{options_string} #{stringify(to)} <<-\"EOM\"
-#{body}
+#{inline_css_body}
 EOM"
     end
 

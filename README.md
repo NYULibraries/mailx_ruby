@@ -30,10 +30,25 @@ MailxRuby.send_mail(
   subject: "Hello",
   to: "joe@example.com",
   cc: "cc@example.com",
-  bcc: "bcc@example.com"
+  bcc: ["bcc@example.com", "bcc.again@example.com"]
 )
 ```
 
 Options `:to`, `:cc`, and `:bcc` accept strings or arrays of strings.
 
-Option `:body` accepts multi-line strings. You can also specify `html: true`, and MailxRuby will attempt to send the body as HTML. This feature will not work on all OSs but it is tested to work on OS X 10.11 and Red Hat Enterprise Linux 6.5.
+Option `:body` accepts multi-line strings.
+
+### HTML
+
+You can specify `html: true`, and MailxRuby will attempt to send the body as HTML on supported OSs (including Mac OS X 10.11 and RHEL 6.5):
+
+```
+body = "<p>Hello world! Here's a list:
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>"
+MailxRuby.send_mail(body: body, to: "joe@example.com", html: true)
+```
+
+If the HTML body includes CSS styles, MailxRuby will automatically convert the CSS to email-supported inline styles using the [premailer gem](https://github.com/alexdunae/premailer).
