@@ -10,7 +10,8 @@ Gem::Specification.new do |s|
   s.description = "Ruby wrapper for mailx command"
   s.authors     = ["Eric Griffis"]
   s.email       = 'eric.griffis@nyu.edu'
-  s.files       = %w[lib/mailx_ruby.rb lib/mailx_ruby/version.rb lib/mailx_ruby/command_generator.rb]
+  s.files       = %w[lib/mailx_ruby.rb lib/mailx_ruby/body.rb lib/mailx_ruby/version.rb lib/mailx_ruby/command_generator.rb]
+  s.test_files  = %w[spec/lib/mailx_ruby_spec.rb spec/lib/mailx_ruby/body_spec.rb spec/lib/mailx_ruby/command_generator_spec.rb spec/lib/mailx_ruby/version_spec.rb]
   s.homepage    = 'https://github.com/NYULibraries/mailx_ruby'
   s.license     = 'MIT'
 
