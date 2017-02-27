@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/NYULibraries/mailx_ruby'
   s.license     = 'MIT'
 
-  s.add_dependency 'premailer'
-  s.add_dependency 'nokogiri'
+  s.add_dependency 'premailer', '>= 1.8'
+  s.add_dependency 'nokogiri', '>= 1.7'
 
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'pry'
+  s.add_development_dependency 'rspec', '~> 3.5'
+  s.add_development_dependency 'pry', '~> 0.10'
   s.add_development_dependency 'coveralls', '~> 0.8.17'
 end
