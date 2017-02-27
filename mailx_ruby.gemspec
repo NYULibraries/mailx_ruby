@@ -5,7 +5,7 @@ require 'mailx_ruby/version'
 Gem::Specification.new do |s|
   s.name        = 'mailx_ruby'
   s.version     = MailxRuby::VERSION
-  s.date        = '2016-05-17'
+  s.date        = '2017-02-27'
   s.summary     = "Ruby wrapper for mailx command"
   s.description = "Ruby wrapper for mailx command"
   s.authors     = ["Eric Griffis"]
